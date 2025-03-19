@@ -32,6 +32,34 @@
             <div class="footer-icon"></div>
         </footer>
     </div>
+    <div>
+        Hello: <pre id="email"></pre>
+        Access token: <pre id="access-token"></pre>
+        ID token: <pre id="id-token"></pre>
+        Refresh token: <pre id="refresh-token"></pre>
+    </div>
+    
+    <script type="module">
+        import { userManager } from "./script.js";
+    
+        userManager.signinCallback().then(function (user) {
+            document.getElementById("email").textContent = user.profile?.email;
+            document.getElementById("access-token").textContent = user.access_token;
+            document.getElementById("id-token").textContent = user.id_token;
+            document.getElementById("refresh-token").textContent = user.refresh_token;
+        });
+    </script>
+    <div>
+        <button id="signOut">Log out</button>
+    </div>
+    
+    <script type="module">
+        import { signOutRedirect } from "./script.js";
+    
+        document.getElementById("signOut").addEventListener("click", async () => {
+            await signOutRedirect();
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>

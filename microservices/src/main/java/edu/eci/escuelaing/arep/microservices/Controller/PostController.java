@@ -44,7 +44,7 @@ public class PostController {
         }
     }
 
-    @GetMapping("/like/{id}")
+    @PutMapping("/like/{id}")
     public ResponseEntity<?> addLike(@PathVariable Long id){
         try {
             postService.addLikes(id);

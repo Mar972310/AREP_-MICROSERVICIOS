@@ -64,11 +64,13 @@ public class PostService implements PostServiceInterface {
         return false;
     }
 
-    public void addLikes(Long id) {
+    public PostDTO addLikes(Long id) {
         Post post = postRepository.findById(id).orElse(null);
         if (post != null) {
             post.setLikes(post.getLikes()+1);
-            postRepository.save(post);
+            Post postD = postRepository.save(post);
+            return toDTO(postD);
         }
+        return null;
     }
 }

@@ -176,6 +176,29 @@ function showPostStream() {
     getStream();
 }
 
+
+import { UserManager } from "oidc-client-ts";
+
+const cognitoAuthConfig = {
+    authority: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_duuslkYAL",
+    client_id: "2tpe7n21reg38ikiv6ufcvqg5n",
+    redirect_uri: "https://apostrep.s3.us-east-1.amazonaws.com/index.html",
+    response_type: "code",
+    scope: "phone openid email"
+};
+
+// create a UserManager instance
+export const userManager = new UserManager({
+    ...cognitoAuthConfig,
+});
+
+export async function signOutRedirect () {
+    const clientId = "2tpe7n21reg38ikiv6ufcvqg5n";
+    const logoutUri = "https://us-east-1duuslkyal.auth.us-east-1.amazoncognito.com";
+    const cognitoDomain = "https://us-east-1duuslkyal.auth.us-east-1.amazoncognito.com";
+    window.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     getStream();  
 });
