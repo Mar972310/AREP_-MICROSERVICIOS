@@ -47,9 +47,16 @@ cd AREP_-MICROSERVICIOS/lambdas/post
 
 - Actualizar post
 
+![alt text](imagenes/updatePostP.png)
+
 - Listar todos los Post
 
+![alt text](imagenes/getAllPostsP.png)
+
 - Mostrar Post
+
+![alt text](imagenes/getPostP.png)
+
 
 
 
