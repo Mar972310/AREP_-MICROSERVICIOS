@@ -9,13 +9,5 @@
     <div>
         <button id="signIn">Sign In</button>
     </div>
-    
-    <script type="module">
-        import { userManager } from "./script.js";
-    
-        document.getElementById("signIn").addEventListener("click", async () => {
-            await userManager.signinRedirect();
-        });
-    </script> 
 </body>
 </html>
